@@ -18,7 +18,7 @@ public class PlayerScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update() //Fixed update
+    void FixedUpdate() //Fixed update
     {
         float hozMovement = Input.GetAxis("Horizontal");
         float verMovement = Input.GetAxis("Vertical");
@@ -33,6 +33,11 @@ public class PlayerScript : MonoBehaviour
             //make gravity 5 and friction .1 and speed 2
         }*/
 
+        
+    }
+
+    void Update()
+    {
         if (Input.GetKey("escape"))
         {
             Application.Quit();
@@ -55,7 +60,7 @@ public class PlayerScript : MonoBehaviour
         if(collision.collider.tag == "Ground")
         {
             //...i don't like this
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKey(KeyCode.W))
             {
                 rd2d.AddForce(new Vector2(0, 3), ForceMode2D.Impulse);
             }
